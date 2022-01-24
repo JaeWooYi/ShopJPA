@@ -15,11 +15,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.PersistenceContext;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 @Transactional
-@TestPropertySource(locations = "classpath:application-test.properties")
+@TestPropertySource(locations="classpath:application-test.properties")
+
 class CartTest {
 
     @Autowired
@@ -48,7 +49,6 @@ class CartTest {
     public void findCartAndMemberTest(){
         Member member = createMember();
         memberRepository.save(member);
-
         Cart cart = new Cart();
         cart.setMember(member);
         cartRepository.save(cart);
